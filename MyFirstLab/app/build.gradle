@@ -47,7 +47,7 @@ android {
 }
 
 dependencies {
-//    implementation(platform(libs.composeBom))
+//    implementation(libs.accompanistSystemUiController)
 
 
     implementation 'androidx.core:core-ktx:1.7.0'
