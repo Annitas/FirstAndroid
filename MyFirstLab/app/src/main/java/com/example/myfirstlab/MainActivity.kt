@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
@@ -41,10 +42,12 @@ class MainActivity : ComponentActivity() {
 @Preview
 @Composable
 fun MainPicture() {
+    Column {
         Image(
             bitmap = ImageBitmap.imageResource(R.drawable.dotapicture),
             contentDescription = "Зимний лес"
         )
+    }
 }
 
 @Composable
