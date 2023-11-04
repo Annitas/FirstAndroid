@@ -18,6 +18,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ImageBitmap
 import androidx.compose.ui.res.imageResource
+import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -56,9 +58,15 @@ fun MainPicture() {
         )
         val myColor: Color = Color(red = 0xF1, green = 0xAA, blue = 0x55, alpha = 0xFF)
         Text(
-            "Hello!",
+            "Dota 2 is a multiplayer online battle arena (MOBA) game " +
+                    "which has two teams of five players compete to collectively destroy a large" +
+                    "structure defended by the opposing team known as the Ancient, " +
+                    "whilst defending their own.",
+            fontFamily = FontFamily.SansSerif,
+            color = Color.LightGray,
             fontSize=22.sp,
-            modifier = Modifier.background(Color.Gray).padding(30.dp)
+            modifier = Modifier.padding(30.dp),
+            textAlign = TextAlign.Justify
 
         )
     }
