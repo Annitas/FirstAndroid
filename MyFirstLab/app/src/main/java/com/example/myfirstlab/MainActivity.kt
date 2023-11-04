@@ -77,7 +77,7 @@ fun MainPicture() {
                 .offset(y = (-10).dp)
         )
 
-        
+
 
         Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceEvenly) {
             Button(
@@ -93,16 +93,6 @@ fun MainPicture() {
         }
 
     }
-}
-
-@Composable
-private fun ApplySystemBarController() {
-//    val systemUiController = rememberSystemUiController()
-
-//    SideEffect {
-//        systemUiController.setStatusBarColor(color = Color.Transparent)
-//        systemUiController.setNavigationBarColor(color = Color.Transparent)
-//    }
 }
 
 
