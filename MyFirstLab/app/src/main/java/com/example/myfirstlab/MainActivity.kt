@@ -6,14 +6,12 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
-import androidx.compose.material.Text
+import androidx.compose.foundation.layout.*
+import androidx.compose.material.*
+import androidx.compose.material.MaterialTheme.colors
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.SideEffect
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ImageBitmap
@@ -52,11 +50,19 @@ fun MainPicture() {
         .background(Color.Black)
         .fillMaxSize()
     ) {
-        Image(
-            bitmap = ImageBitmap.imageResource(R.drawable.dotapicture),
-            contentDescription = "Зимний лес"
-        )
-        val myColor: Color = Color(red = 0xF1, green = 0xAA, blue = 0x55, alpha = 0xFF)
+        Box {
+            Column {
+                Image(
+                    bitmap = ImageBitmap.imageResource(R.drawable.dotapicture),
+                    contentDescription = "Main dota picture"
+                )
+                Image(
+                    bitmap = ImageBitmap.imageResource(R.drawable.dota_icon),
+                    contentDescription = "Dota icon"
+                )
+            }
+        }
+        val myColor: Color = Color(red = 0xFA, green = 0xE2, blue = 0x10, alpha = 0xFF)
         Text(
             "Dota 2 is a multiplayer online battle arena (MOBA) game " +
                     "which has two teams of five players compete to collectively destroy a large" +
@@ -65,10 +71,27 @@ fun MainPicture() {
             fontFamily = FontFamily.SansSerif,
             color = Color.LightGray,
             fontSize=22.sp,
-            modifier = Modifier.padding(30.dp),
-            textAlign = TextAlign.Justify
-
+            textAlign = TextAlign.Justify,
+            modifier = Modifier
+                .padding(30.dp)
+                .offset(y = (-10).dp)
         )
+
+        
+
+        Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceEvenly) {
+            Button(
+                onClick = {},
+                colors = ButtonDefaults.buttonColors(
+                    backgroundColor = Color.Yellow,
+                    contentColor = Color.Black
+                )
+            ) {
+
+                Text("Install", fontSize = 25.sp)
+            }
+        }
+
     }
 }
 
