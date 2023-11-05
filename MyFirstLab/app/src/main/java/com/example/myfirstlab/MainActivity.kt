@@ -7,8 +7,12 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.*
 import androidx.compose.material.MaterialTheme.colors
+import androidx.compose.material.SnackbarDefaults.backgroundColor
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.SideEffect
 import androidx.compose.ui.Alignment
@@ -49,6 +53,7 @@ fun MainPicture() {
     Column(Modifier
         .background(Color.Black)
         .fillMaxSize()
+        .verticalScroll(rememberScrollState())
     ) {
         Box {
             Column {
@@ -63,6 +68,7 @@ fun MainPicture() {
             }
         }
         val myColor: Color = Color(red = 0xFA, green = 0xE2, blue = 0x10, alpha = 0xFF)
+        // Dota description
         Text(
             "Dota 2 is a multiplayer online battle arena (MOBA) game " +
                     "which has two teams of five players compete to collectively destroy a large" +
@@ -76,21 +82,52 @@ fun MainPicture() {
                 .padding(30.dp)
                 .offset(y = (-10).dp)
         )
+        // Scrollable thing
+        LazyRow(
+            horizontalArrangement = Arrangement.spacedBy(4.dp),
+            contentPadding = PaddingValues(4.dp),
+            modifier = Modifier
+                .weight(0.5f)
+                .fillMaxWidth(0.90f)
 
-
-
-        Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceEvenly) {
-            Button(
-                onClick = {},
-                colors = ButtonDefaults.buttonColors(
-                    backgroundColor = Color.Yellow,
-                    contentColor = Color.Black
+        ) {
+            item {
+            Image(
+                bitmap = ImageBitmap.imageResource(R.drawable.game_screen),
+                contentDescription = "Dota game screen"
+            )
+            }
+            item {
+                Image(
+                    bitmap = ImageBitmap.imageResource(R.drawable.second_game_screen),
+                    contentDescription = "Dota game screen"
                 )
-            ) {
-
-                Text("Install", fontSize = 25.sp)
+            }
+            item {
+                Image(
+                    bitmap = ImageBitmap.imageResource(R.drawable.second_game_screen),
+                    contentDescription = "Dota game screen"
+                )
             }
         }
+
+        // Install button
+//        BottomAppBar(backgroundColor = Color(red = 0xFA, green = 0xE2, blue = 0x10, alpha = 0x0)) {
+            Row(modifier = Modifier
+                .fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceEvenly,
+                verticalAlignment = Alignment.Bottom) {
+                Button(
+                    onClick = {},
+                    colors = ButtonDefaults.buttonColors(
+                        backgroundColor = Color.Yellow,
+                        contentColor = Color.Black
+                    )
+                ) {
+                    Text("Install", fontSize = 25.sp)
+                }
+            }
+//        }
 
     }
 }
