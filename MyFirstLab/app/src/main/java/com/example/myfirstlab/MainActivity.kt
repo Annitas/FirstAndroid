@@ -79,7 +79,7 @@ fun MainPicture() {
             fontSize=22.sp,
             textAlign = TextAlign.Justify,
             modifier = Modifier
-                .padding(30.dp)
+                .padding(20.dp)
                 .offset(y = (-10).dp)
         )
         // Scrollable thing
@@ -112,7 +112,7 @@ fun MainPicture() {
         }
 
         // Install button
-//        BottomAppBar(backgroundColor = Color(red = 0xFA, green = 0xE2, blue = 0x10, alpha = 0x0)) {
+        BottomAppBar(backgroundColor = Color(red = 0xFA, green = 0xE2, blue = 0x10, alpha = 0x0)) {
             Row(modifier = Modifier
                 .fillMaxWidth(),
                 horizontalArrangement = Arrangement.SpaceEvenly,
@@ -127,9 +127,13 @@ fun MainPicture() {
                     Text("Install", fontSize = 25.sp)
                 }
             }
+        }
+//        BottomAppBar {
+//
+//            Text( "Lol")
 //        }
-
     }
+
 }
 
 
