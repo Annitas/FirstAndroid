@@ -2,16 +2,14 @@ package com.example.myfirstlab
 
 import android.media.Image
 import android.os.Bundle
+import android.system.Os.close
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
+import androidx.compose.foundation.*
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
-import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.*
 import androidx.compose.material.MaterialTheme.colors
 import androidx.compose.material.SnackbarDefaults.backgroundColor
@@ -22,6 +20,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ImageBitmap
+import androidx.compose.ui.graphics.Path
 import androidx.compose.ui.res.imageResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontFamily
@@ -77,10 +76,40 @@ fun DotaHeader() {
                 bitmap = ImageBitmap.imageResource(R.drawable.dotapicture),
                 contentDescription = "Main dota picture"
             )
-            Image(
-                bitmap = ImageBitmap.imageResource(R.drawable.dota_icon),
-                contentDescription = "Dota icon"
-            )
+            Row {
+                Image(
+                    bitmap = ImageBitmap.imageResource(R.drawable.dota_icon),
+                    contentDescription = "Dota icon"
+                )
+                Spacer(modifier = Modifier.width(8.dp))
+
+                Column(
+                    verticalArrangement = Arrangement.Bottom
+                ) {
+                    Text(
+                        text = "DoTA 2",
+                        color = Color.LightGray,
+                        fontWeight = FontWeight.SemiBold
+                    )
+                    // Add a vertical space between the author and message texts
+                    Spacer(modifier = Modifier.height(4.dp))
+                    Row {
+                        StarShape()
+                        StarShape()
+                        StarShape()
+                        StarShape()
+                        StarShape()
+                        Spacer(modifier = Modifier.width(8.dp))
+                        Text(
+                            text = "70M",
+                            color = Color.LightGray
+
+                        )
+                    }
+
+                }
+            }
+
         }
     }
 }
@@ -192,6 +221,7 @@ fun ReviewAndRating() {
     }
 }
 
+@Preview
 @Composable
 fun BottomInstallButton() {
     BottomAppBar(backgroundColor = Color(red = 0xFA, green = 0xE2, blue = 0x10, alpha = 0x0)) {
@@ -212,22 +242,25 @@ fun BottomInstallButton() {
     }
 }
 
-//@Preview
-//@Composable
-//fun MainPicture() {
-//    Column(
-//        Modifier
-//            .background(Color.Black)
-//            .fillMaxSize()
-//            .verticalScroll(rememberScrollState())
-//    ) {
-//        val myColor: Color = Color(red = 0xFA, green = 0xE2, blue = 0x10, alpha = 0xFF)
-//        // Install button
-//
-//    }
-//
-//}
-
+@Composable
+fun StarShape() {
+    Canvas(modifier = Modifier.size(18.dp)) {
+        val path = Path().apply {
+            moveTo(size.width / 2, 0f)
+            lineTo(size.width * 0.6f, size.height * 0.4f)
+            lineTo(size.width, size.height * 0.4f)
+            lineTo(size.width * 0.7f, size.height * 0.65f)
+            lineTo(size.width * 0.8f, size.height)
+            lineTo(size.width / 2, size.height * 0.8f)
+            lineTo(size.width * 0.2f, size.height)
+            lineTo(size.width * 0.3f, size.height * 0.65f)
+            lineTo(0f, size.height * 0.4f)
+            lineTo(size.width * 0.4f, size.height * 0.4f)
+            close()
+        }
+        drawPath(path, color = Color.Yellow)
+    }
+}
 
 @Composable
 fun Greeting(name: String) {
