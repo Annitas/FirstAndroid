@@ -7,6 +7,7 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
@@ -45,7 +46,22 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    MainPicture()
+                    LazyColumn(modifier = Modifier
+                        .background(Color.Black)
+                    ) {
+                        item {
+                            DotaHeader()
+                        }
+                        item {
+                            DotaTextAndPreview()
+                        }
+                        item {
+                            ReviewAndRating()
+                        }
+                        item {
+                            BottomInstallButton()
+                        }
+                    }
                 }
             }
         }
@@ -54,148 +70,163 @@ class MainActivity : ComponentActivity() {
 
 @Preview
 @Composable
-fun MainPicture() {
-    Column(Modifier
-        .background(Color.Black)
-        .fillMaxSize()
-        .verticalScroll(rememberScrollState())
-    ) {
-        Box {
-            Column {
-                Image(
-                    bitmap = ImageBitmap.imageResource(R.drawable.dotapicture),
-                    contentDescription = "Main dota picture"
-                )
-                Image(
-                    bitmap = ImageBitmap.imageResource(R.drawable.dota_icon),
-                    contentDescription = "Dota icon"
-                )
-            }
-        }
-        val myColor: Color = Color(red = 0xFA, green = 0xE2, blue = 0x10, alpha = 0xFF)
-        // Dota description
-        Box {
-            Column {
-        Text(
-            "Dota 2 is a multiplayer online battle arena (MOBA) game " +
-                    "which has two teams of five players compete to collectively destroy a large" +
-                    "structure defended by the opposing team known as the Ancient, " +
-                    "whilst defending their own.",
-            fontFamily = FontFamily.SansSerif,
-            color = Color.LightGray,
-            fontSize = 22.sp,
-            textAlign = TextAlign.Justify,
-            modifier = Modifier
-                .padding(20.dp)
-                .offset(y = (-10).dp)
-        )
-        // Scrollable thing
-        LazyRow(
-            horizontalArrangement = Arrangement.spacedBy(4.dp),
-            contentPadding = PaddingValues(4.dp),
-            modifier = Modifier
-//                .weight(0.5f)
-                .fillMaxWidth()
-
-        ) {
-            item {
-                Image(
-                    bitmap = ImageBitmap.imageResource(R.drawable.game_screen),
-                    contentDescription = "Dota game screen"
-                )
-            }
-            item {
-                Image(
-                    bitmap = ImageBitmap.imageResource(R.drawable.second_game_screen),
-                    contentDescription = "Dota game screen"
-                )
-            }
-            item {
-                Image(
-                    bitmap = ImageBitmap.imageResource(R.drawable.second_game_screen),
-                    contentDescription = "Dota game screen"
-                )
-            }
-        }
-            }
-        }
-        // Review and rating
-        Box(modifier = Modifier.padding(all = 10.dp)) {
-            Column {
-        Text(
-            "Review & Ratings",
-            fontFamily = FontFamily.SansSerif,
-            fontWeight = FontWeight.Bold,
-            color = Color.LightGray,
-            fontSize = 25.sp,
-            textAlign = TextAlign.Justify,
-            modifier = Modifier
-                .padding(20.dp)
-        )
-
-// Add padding around our message
-                Row {
-                    Image(
-                        painter = painterResource(R.drawable.profile_picture),
-                        contentDescription = "Contact profile picture",
-                        modifier = Modifier
-                            // Set image size to 40 dp
-                            .size(45.dp)
-                            // Clip image to be shaped as a circle
-                            .clip(CircleShape)
-//                    .padding(10.dp)
-                    )
-
-                    // Add a horizontal space between the image and the column
-                    Spacer(modifier = Modifier.width(8.dp))
-
-                    Column {
-                        Text(
-                            text = "Kotik Lapkin",
-                            color = Color.LightGray,
-                            fontWeight = FontWeight.SemiBold
-                        )
-                        // Add a vertical space between the author and message texts
-                        Spacer(modifier = Modifier.height(4.dp))
-                        Text(
-                            text = "October 5, 2023",
-                            color = Color.LightGray
-                        )
-                    }
-                }
-                Text(
-                    text = "\"Once you start to learn its secrets, there's a wild" +
-                            " and exciting variety of play here that's unmatched " +
-                            ", even by its peers\"",
-                    textAlign = TextAlign.Justify,
-                    fontStyle = FontStyle.Italic,
-                    color = Color.LightGray,
-                    modifier = Modifier
-                        .padding(5.dp)
-                )
-            }
-    }
-
-        // Install button
-        BottomAppBar(backgroundColor = Color(red = 0xFA, green = 0xE2, blue = 0x10, alpha = 0x0)) {
-            Row(modifier = Modifier
-                .fillMaxWidth(),
-                horizontalArrangement = Arrangement.SpaceEvenly,
-                verticalAlignment = Alignment.Bottom) {
-                Button(
-                    onClick = {},
-                    colors = ButtonDefaults.buttonColors(
-                        backgroundColor = Color.Yellow,
-                        contentColor = Color.Black
-                    )
-                ) {
-                    Text("Install", fontSize = 25.sp)
-                }
-            }
+fun DotaHeader() {
+    Box {
+        Column {
+            Image(
+                bitmap = ImageBitmap.imageResource(R.drawable.dotapicture),
+                contentDescription = "Main dota picture"
+            )
+            Image(
+                bitmap = ImageBitmap.imageResource(R.drawable.dota_icon),
+                contentDescription = "Dota icon"
+            )
         }
     }
-
 }
+
+@Preview
+@Composable
+fun DotaTextAndPreview() {
+    Box {
+        Column {
+            Text(
+                "Dota 2 is a multiplayer online battle arena (MOBA) game " +
+                        "which has two teams of five players compete to collectively destroy a large" +
+                        "structure defended by the opposing team known as the Ancient, " +
+                        "whilst defending their own.",
+                fontFamily = FontFamily.SansSerif,
+                color = Color.LightGray,
+                fontSize = 22.sp,
+                textAlign = TextAlign.Justify,
+                modifier = Modifier
+                    .padding(20.dp)
+                    .offset(y = (-10).dp)
+            )
+            // Scrollable thing
+            LazyRow(
+                horizontalArrangement = Arrangement.spacedBy(4.dp),
+                contentPadding = PaddingValues(4.dp),
+//                modifier = Modifier
+//                .weight(0.5f)
+//                    .fillMaxWidth()
+
+            ) {
+                item {
+                    Image(
+                        bitmap = ImageBitmap.imageResource(R.drawable.game_screen),
+                        contentDescription = "Dota game screen"
+                    )
+                }
+                item {
+                    Image(
+                        bitmap = ImageBitmap.imageResource(R.drawable.second_game_screen),
+                        contentDescription = "Dota game screen"
+                    )
+                }
+                item {
+                    Image(
+                        bitmap = ImageBitmap.imageResource(R.drawable.second_game_screen),
+                        contentDescription = "Dota game screen"
+                    )
+                }
+            }
+        }
+    }
+}
+
+@Preview
+@Composable
+fun ReviewAndRating() {
+    Box(modifier = Modifier.padding(all = 10.dp)) {
+        Column {
+            Text(
+                "Review & Ratings",
+                fontFamily = FontFamily.SansSerif,
+                fontWeight = FontWeight.Bold,
+                color = Color.LightGray,
+                fontSize = 25.sp,
+                textAlign = TextAlign.Justify,
+                modifier = Modifier
+                    .padding(20.dp)
+            )
+// Add padding around our message
+            Row {
+                Image(
+                    painter = painterResource(R.drawable.profile_picture),
+                    contentDescription = "Contact profile picture",
+                    modifier = Modifier
+                        // Set image size to 40 dp
+                        .size(45.dp)
+                        // Clip image to be shaped as a circle
+                        .clip(CircleShape)
+                )
+                // Add a horizontal space between the image and the column
+                Spacer(modifier = Modifier.width(8.dp))
+
+                Column {
+                    Text(
+                        text = "Kotik Lapkin",
+                        color = Color.LightGray,
+                        fontWeight = FontWeight.SemiBold
+                    )
+                    // Add a vertical space between the author and message texts
+                    Spacer(modifier = Modifier.height(4.dp))
+                    Text(
+                        text = "October 5, 2023",
+                        color = Color.LightGray
+                    )
+                }
+            }
+            Text(
+                text = "\"Once you start to learn its secrets, there's a wild" +
+                        " and exciting variety of play here that's unmatched " +
+                        ", even by its peers\"",
+                textAlign = TextAlign.Justify,
+                fontStyle = FontStyle.Italic,
+                color = Color.LightGray,
+                modifier = Modifier
+                    .padding(5.dp)
+            )
+        }
+    }
+}
+
+@Composable
+fun BottomInstallButton() {
+    BottomAppBar(backgroundColor = Color(red = 0xFA, green = 0xE2, blue = 0x10, alpha = 0x0)) {
+        Row(modifier = Modifier
+            .fillMaxWidth(),
+            horizontalArrangement = Arrangement.SpaceEvenly,
+            verticalAlignment = Alignment.Bottom) {
+            Button(
+                onClick = {},
+                colors = ButtonDefaults.buttonColors(
+                    backgroundColor = Color.Yellow,
+                    contentColor = Color.Black
+                )
+            ) {
+                Text("Install", fontSize = 25.sp)
+            }
+        }
+    }
+}
+
+//@Preview
+//@Composable
+//fun MainPicture() {
+//    Column(
+//        Modifier
+//            .background(Color.Black)
+//            .fillMaxSize()
+//            .verticalScroll(rememberScrollState())
+//    ) {
+//        val myColor: Color = Color(red = 0xFA, green = 0xE2, blue = 0x10, alpha = 0xFF)
+//        // Install button
+//
+//    }
+//
+//}
 
 
 @Composable
