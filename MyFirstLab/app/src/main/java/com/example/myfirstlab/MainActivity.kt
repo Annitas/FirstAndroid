@@ -40,7 +40,6 @@ class MainActivity : ComponentActivity() {
         WindowCompat.setDecorFitsSystemWindows(window, false)
         setContent {
             MyFirstLabTheme {
-                // A surface container using the 'background' color from the theme
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
@@ -82,7 +81,6 @@ fun DotaHeader() {
                     contentDescription = "Dota icon"
                 )
                 Spacer(modifier = Modifier.width(8.dp))
-
                 Column(
                     verticalArrangement = Arrangement.Bottom
                 ) {
@@ -103,13 +101,10 @@ fun DotaHeader() {
                         Text(
                             text = "70M",
                             color = Color.LightGray
-
                         )
                     }
-
                 }
             }
-
         }
     }
 }
@@ -132,14 +127,9 @@ fun DotaTextAndPreview() {
                     .padding(20.dp)
                     .offset(y = (-10).dp)
             )
-            // Scrollable thing
             LazyRow(
                 horizontalArrangement = Arrangement.spacedBy(4.dp),
                 contentPadding = PaddingValues(4.dp),
-//                modifier = Modifier
-//                .weight(0.5f)
-//                    .fillMaxWidth()
-
             ) {
                 item {
                     Image(
@@ -176,30 +166,53 @@ fun ReviewAndRating() {
                 color = Color.LightGray,
                 fontSize = 25.sp,
                 textAlign = TextAlign.Justify,
-                modifier = Modifier
-                    .padding(20.dp)
             )
-// Add padding around our message
+            Row(
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Text(
+                    "4.9",
+                    fontFamily = FontFamily.SansSerif,
+                    color = Color.LightGray,
+                    fontSize = 40.sp,
+                    fontWeight = FontWeight.ExtraBold,
+                    textAlign = TextAlign.Justify,
+                    modifier = Modifier
+                        .padding(20.dp)
+                        .offset(y = (-10).dp)
+                )
+                Spacer(modifier = Modifier.width(8.dp))
+                Column {
+                    Row {
+                        StarShape()
+                        StarShape()
+                        StarShape()
+                        StarShape()
+                        StarShape()
+                    }
+                    // Add a vertical space between the author and message texts
+                        Spacer(modifier = Modifier.width(10.dp))
+                        Text(
+                            text = "70M Reviews",
+                            color = Color.LightGray
+                        )
+                }
+            }
             Row {
                 Image(
                     painter = painterResource(R.drawable.profile_picture),
                     contentDescription = "Contact profile picture",
                     modifier = Modifier
-                        // Set image size to 40 dp
                         .size(45.dp)
-                        // Clip image to be shaped as a circle
                         .clip(CircleShape)
                 )
-                // Add a horizontal space between the image and the column
                 Spacer(modifier = Modifier.width(8.dp))
-
                 Column {
                     Text(
                         text = "Kotik Lapkin",
                         color = Color.LightGray,
                         fontWeight = FontWeight.SemiBold
                     )
-                    // Add a vertical space between the author and message texts
                     Spacer(modifier = Modifier.height(4.dp))
                     Text(
                         text = "October 5, 2023",
