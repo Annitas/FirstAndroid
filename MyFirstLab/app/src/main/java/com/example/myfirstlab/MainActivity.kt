@@ -128,10 +128,6 @@ fun MainPicture() {
                 }
             }
         }
-//        BottomAppBar {
-//
-//            Text( "Lol")
-//        }
     }
 
 }
