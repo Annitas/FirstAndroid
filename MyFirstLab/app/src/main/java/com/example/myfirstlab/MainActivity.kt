@@ -230,6 +230,39 @@ fun ReviewAndRating() {
                 modifier = Modifier
                     .padding(5.dp)
             )
+            Spacer(modifier = Modifier.height(10.dp))
+            Row {
+                Image(
+                    painter = painterResource(R.drawable.profile_picture),
+                    contentDescription = "Contact profile picture",
+                    modifier = Modifier
+                        .size(45.dp)
+                        .clip(CircleShape)
+                )
+                Spacer(modifier = Modifier.width(8.dp))
+                Column {
+                    Text(
+                        text = "Kotik Lapkin",
+                        color = Color.LightGray,
+                        fontWeight = FontWeight.SemiBold
+                    )
+                    Spacer(modifier = Modifier.height(4.dp))
+                    Text(
+                        text = "October 5, 2023",
+                        color = Color.LightGray
+                    )
+                }
+            }
+            Text(
+                text = "\"Once you start to learn its secrets, there's a wild" +
+                        " and exciting variety of play here that's unmatched " +
+                        ", even by its peers\"",
+                textAlign = TextAlign.Justify,
+                fontStyle = FontStyle.Italic,
+                color = Color.LightGray,
+                modifier = Modifier
+                    .padding(5.dp)
+            )
         }
     }
 }
