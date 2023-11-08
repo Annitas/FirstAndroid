@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.material.MaterialTheme.colors
 import androidx.compose.material.SnackbarDefaults.backgroundColor
@@ -51,6 +52,9 @@ class MainActivity : ComponentActivity() {
                             DotaHeader()
                         }
                         item {
+                            Tags()
+                        }
+                        item {
                             DotaTextAndPreview()
                         }
                         item {
@@ -71,7 +75,7 @@ class MainActivity : ComponentActivity() {
 fun DotaHeader() {
     Box {
         Column {
-            Image(
+            Image(modifier = Modifier.fillMaxSize(),
                 bitmap = ImageBitmap.imageResource(R.drawable.dotapicture),
                 contentDescription = "Main dota picture"
             )
@@ -106,6 +110,51 @@ fun DotaHeader() {
                 }
             }
         }
+    }
+}
+
+@Preview
+@Composable
+fun Tags() {
+    val tagsBackgroundColor = Color(red = 0x31, green = 0xB7, blue = 0xFF, alpha = 0x95)
+    val tagsTextColor = Color(red = 0x2F, green = 0xC4, blue = 0xE9, alpha = 0xFF)
+    Row{
+        Spacer(modifier = Modifier.width(8.dp))
+            Box(modifier = Modifier
+                .clip(CircleShape)
+                .background(tagsBackgroundColor)
+            ) {
+                Text(
+                    text = "MOBA",
+                    color = tagsTextColor,
+                    fontWeight = FontWeight.SemiBold,
+                    modifier = Modifier.padding(8.dp)
+                )
+            }
+        Spacer(modifier = Modifier.width(8.dp))
+            Box(modifier = Modifier
+                .clip(RoundedCornerShape(60))
+                .background(tagsBackgroundColor)
+            ) {
+                Text(
+                    text = "MULTIPLAYER",
+                    color = tagsTextColor,
+                    fontWeight = FontWeight.SemiBold,
+                    modifier = Modifier.padding(8.dp)
+                )
+            }
+        Spacer(modifier = Modifier.width(8.dp))
+            Box(modifier = Modifier
+                .clip(CircleShape)
+                .background(tagsBackgroundColor)
+            ) {
+                Text(
+                    text = "STRATEGY",
+                    color = tagsTextColor,
+                    fontWeight = FontWeight.SemiBold,
+                    modifier = Modifier.padding(8.dp)
+                )
+            }
     }
 }
 
@@ -233,7 +282,7 @@ fun ReviewAndRating() {
             Spacer(modifier = Modifier.height(10.dp))
             Row {
                 Image(
-                    painter = painterResource(R.drawable.profile_picture),
+                    painter = painterResource(R.drawable.avatar),
                     contentDescription = "Contact profile picture",
                     modifier = Modifier
                         .size(45.dp)
@@ -242,7 +291,7 @@ fun ReviewAndRating() {
                 Spacer(modifier = Modifier.width(8.dp))
                 Column {
                     Text(
-                        text = "Kotik Lapkin",
+                        text = "Misa Lapkina",
                         color = Color.LightGray,
                         fontWeight = FontWeight.SemiBold
                     )
