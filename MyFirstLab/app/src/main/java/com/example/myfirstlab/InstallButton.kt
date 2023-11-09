@@ -14,6 +14,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 @Preview
@@ -21,7 +22,8 @@ import androidx.compose.ui.unit.sp
 fun BottomInstallButton() {
 //    BottomAppBar(backgroundColor = colorResource(R.color.yellow)) {
         Row(modifier = Modifier
-                .fillMaxWidth(),
+                .fillMaxWidth()
+                .padding(22.dp),
             horizontalArrangement = Arrangement.SpaceEvenly,
             verticalAlignment = Alignment.Bottom) {
             var isButtonPressed by remember { mutableStateOf(false) }
