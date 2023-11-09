@@ -8,8 +8,8 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="main_text_color">#C6C4C4</color>
-    <color name="tags_background_color">#794FC1FD</color>
-    <color name="tags_text_color">#BE2FC4E9</color>
+    <color name="tags_background_color">#594FC1FD</color>
+    <color name="tags_text_color">#8B2FC4E9</color>
     <color name="yellow">#EEEFD705</color>
     <color name="dark_yellow">#EEB3A102</color>
 </resources>
