@@ -8,7 +8,7 @@ import androidx.compose.material.BottomAppBar
 import androidx.compose.material.Button
 import androidx.compose.material.ButtonDefaults
 import androidx.compose.material.Text
-import androidx.compose.runtime.Composable
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.colorResource
@@ -24,15 +24,18 @@ fun BottomInstallButton() {
                 .fillMaxWidth(),
             horizontalArrangement = Arrangement.SpaceEvenly,
             verticalAlignment = Alignment.Bottom) {
+            var isButtonPressed by remember { mutableStateOf(false) }
+
             Button(
-                onClick = {},
+                onClick = { isButtonPressed = !isButtonPressed },
                 colors = ButtonDefaults.buttonColors(
-                    backgroundColor = colorResource(R.color.yellow),
+                    backgroundColor = if (isButtonPressed) colorResource(R.color.dark_yellow) else colorResource(R.color.yellow),
                     contentColor = colorResource(R.color.black)
                 )
             ) {
                 Text(stringResource(R.string.install), fontSize = 25.sp)
             }
+
         }
 //    }
 }

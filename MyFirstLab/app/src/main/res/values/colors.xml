@@ -11,4 +11,5 @@
     <color name="tags_background_color">#794FC1FD</color>
     <color name="tags_text_color">#BE2FC4E9</color>
     <color name="yellow">#EEEFD705</color>
+    <color name="dark_yellow">#EEB3A102</color>
 </resources>
