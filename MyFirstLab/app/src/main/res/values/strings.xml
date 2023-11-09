@@ -1,3 +1,19 @@
 <resources>
     <string name="app_name">MyFirstLab</string>
+    <string name="dota_description">Dota 2 is a multiplayer online battle arena (MOBA) game which has two
+        teams of five players compete to collectively destroy a large structure defended by the opposing
+        team known as the Ancient, whilst defending their own.</string>
+    <string name="moba">MOBA</string>
+    <string name="multiplayer">MULTIPLAYER</string>
+    <string name="strategy">STRATEGY</string>
+    <string name="dota">DoTA 2</string>
+    <string name="million">70M</string>
+    <string name="million_r">70M Reviews</string>
+    <string name="first_commentator">Kotik Lapkin</string>
+    <string name="second_commentator">Misa Lapkina</string>
+    <string name="rating_number">4.9</string>
+    <string name="install">Install</string>
+    <string name="review_and_ratings_title">Review &amp; Ratings</string>
+    <string name="october">October 5, 2023</string>
+    <string name="comment_text">\"Once you start to learn its secrets, there\'s a wild and exciting variety of play here that\'s unmatched, even by its peers\"</string>
 </resources>

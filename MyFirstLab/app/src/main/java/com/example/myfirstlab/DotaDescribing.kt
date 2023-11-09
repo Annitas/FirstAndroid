@@ -8,7 +8,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ImageBitmap
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.imageResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
@@ -21,14 +23,11 @@ fun DotaTextAndPreview() {
     Box {
         Column {
             Text(
-                "Dota 2 is a multiplayer online battle arena (MOBA) game " +
-                        "which has two teams of five players compete to collectively destroy a large" +
-                        "structure defended by the opposing team known as the Ancient, " +
-                        "whilst defending their own.",
+                text = stringResource(R.string.dota_description),
                 fontFamily = FontFamily.SansSerif,
-                color = Color.LightGray,
-                fontSize = 22.sp,
-                textAlign = TextAlign.Justify,
+                color = colorResource(R.color.main_text_color),
+                fontSize = 19.sp,
+//                textAlign = TextAlign.Justify,
                 modifier = Modifier
                     .padding(20.dp)
                     .offset(y = (-10).dp)
