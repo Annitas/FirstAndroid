@@ -8,8 +8,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
@@ -25,10 +26,10 @@ fun ReviewAndRating() {
     Box(modifier = Modifier.padding(all = 10.dp)) {
         Column {
             Text(
-                "Review & Ratings",
+                stringResource(R.string.review_and_ratings_title),
                 fontFamily = FontFamily.SansSerif,
                 fontWeight = FontWeight.Bold,
-                color = Color.LightGray,
+                color = colorResource(R.color.main_text_color),
                 fontSize = 25.sp,
                 textAlign = TextAlign.Justify,
             )
@@ -36,9 +37,9 @@ fun ReviewAndRating() {
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 Text(
-                    "4.9",
+                    stringResource(R.string.rating_number),
                     fontFamily = FontFamily.SansSerif,
-                    color = Color.LightGray,
+                    color = colorResource(R.color.main_text_color),
                     fontSize = 40.sp,
                     fontWeight = FontWeight.ExtraBold,
                     textAlign = TextAlign.Justify,
@@ -58,8 +59,8 @@ fun ReviewAndRating() {
                     // Add a vertical space between the author and message texts
                     Spacer(modifier = Modifier.width(10.dp))
                     Text(
-                        text = "70M Reviews",
-                        color = Color.LightGray
+                        text = stringResource(R.string.million_r),
+                        color = colorResource(R.color.main_text_color)
                     )
                 }
             }
@@ -74,24 +75,22 @@ fun ReviewAndRating() {
                 Spacer(modifier = Modifier.width(8.dp))
                 Column {
                     Text(
-                        text = "Kotik Lapkin",
-                        color = Color.LightGray,
+                        text = stringResource(R.string.first_commentator),
+                        color = colorResource(R.color.main_text_color),
                         fontWeight = FontWeight.SemiBold
                     )
                     Spacer(modifier = Modifier.height(4.dp))
                     Text(
-                        text = "October 5, 2023",
-                        color = Color.LightGray
+                        text = stringResource(R.string.october),
+                        color = colorResource(R.color.main_text_color)
                     )
                 }
             }
             Text(
-                text = "\"Once you start to learn its secrets, there's a wild" +
-                        " and exciting variety of play here that's unmatched " +
-                        ", even by its peers\"",
+                text = stringResource(R.string.comment_text),
                 textAlign = TextAlign.Justify,
                 fontStyle = FontStyle.Italic,
-                color = Color.LightGray,
+                color = colorResource(R.color.main_text_color),
                 modifier = Modifier
                     .padding(5.dp)
             )
@@ -107,24 +106,22 @@ fun ReviewAndRating() {
                 Spacer(modifier = Modifier.width(8.dp))
                 Column {
                     Text(
-                        text = "Misa Lapkina",
-                        color = Color.LightGray,
+                        text = stringResource(R.string.second_commentator),
+                        color = colorResource(R.color.main_text_color),
                         fontWeight = FontWeight.SemiBold
                     )
                     Spacer(modifier = Modifier.height(4.dp))
                     Text(
-                        text = "October 5, 2023",
-                        color = Color.LightGray
+                        text = stringResource(R.string.october),
+                        color = colorResource(R.color.main_text_color)
                     )
                 }
             }
             Text(
-                text = "\"Once you start to learn its secrets, there's a wild" +
-                        " and exciting variety of play here that's unmatched " +
-                        ", even by its peers\"",
+                text = stringResource(R.string.comment_text),
                 textAlign = TextAlign.Justify,
                 fontStyle = FontStyle.Italic,
-                color = Color.LightGray,
+                color = colorResource(R.color.main_text_color),
                 modifier = Modifier
                     .padding(5.dp)
             )

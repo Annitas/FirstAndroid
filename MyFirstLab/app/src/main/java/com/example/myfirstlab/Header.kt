@@ -5,14 +5,14 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ImageBitmap
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.imageResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-//class Header {
     @Preview
     @Composable
     fun DotaHeader() {
@@ -32,8 +32,8 @@ import androidx.compose.ui.unit.dp
                         verticalArrangement = Arrangement.Bottom
                     ) {
                         Text(
-                            text = "DoTA 2",
-                            color = Color.LightGray,
+                            text = stringResource(R.string.dota),
+                            color = colorResource(R.color.main_text_color),
                             fontWeight = FontWeight.SemiBold
                         )
                         // Add a vertical space between the author and message texts
@@ -46,8 +46,8 @@ import androidx.compose.ui.unit.dp
                             StarShape()
                             Spacer(modifier = Modifier.width(8.dp))
                             Text(
-                                text = "70M",
-                                color = Color.LightGray
+                                text = stringResource(R.string.million),
+                                color = colorResource(R.color.main_text_color)
                             )
                         }
                     }
@@ -55,4 +55,3 @@ import androidx.compose.ui.unit.dp
             }
         }
     }
-//}
